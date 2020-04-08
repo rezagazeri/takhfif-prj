@@ -21,8 +21,16 @@
     },
     "rules": {
         "prettier/prettier": "error",
+        "no-new": "off",
         "spaced-comment": "off",
-        "no-console": "warn",
+        "no-console": "off",
+        "no-restricted-syntax": [
+            "error",
+            {
+                "selector": "CallExpression[callee.object.name='console'][callee.property.name!=/^(log|warn|error|info|trace)$/]",
+                "message": "Unexpected property on console object was called"
+            }
+        ],
         "consistent-return": "off",
         "func-names": "off",
         "object-shorthand": "off",
